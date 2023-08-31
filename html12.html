@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css12.css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+</head>
+<body>
+    <div id="main-container">
+       <div id="counter-box">
+        <h1>Real-time Character Counter</h1>
+        <textarea
+        id="textarea"
+        class="textarea"
+        placeholder="Please write your text here..."
+        maxlength="50"
+      ></textarea>
+        <div id="timer-counter">
+            <p>
+                Total Character:
+                <span id="totalcount"></span>
+            </p>
+            <p>
+                Remaining:
+                <span id="remaining-count"></span>
+            </p>
+        </div>
+
+       </div>
+       <script>
+        const textarea=document.getElementById("textarea");
+        const totalcount=document.getElementById("totalcount");
+        const remainingcount=document.getElementById("remaining-count");
+        document.addEventListener("keyup",()=>{
+          updatevalue();
+        });
+        updatevalue()
+        function updatevalue(){
+          totalcount.innerText= textarea.value.length;
+          remainingcount.innerText=textarea.getAttribute("maxlength")-textarea.value.length;
+        }
+       </script>
+    </div>
+</body>
